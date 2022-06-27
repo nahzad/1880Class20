@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 
 $banner_id = $_GET['banner_id'];
 $sql = "UPDATE banners SET active_status=0 WHERE id='{$banner_id}'";

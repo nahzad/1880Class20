@@ -5,12 +5,12 @@
 <?php
 
 
-include 'head_source.php';
+include 'includes/head_source.php';
 
 ?>
 
 <body>
-    <?php include "main_nav.php"; ?>
+    <?php include "includes/main_nav.php"; ?>
 
     <!-- Page container -->
     <div class="page-container">
@@ -45,7 +45,7 @@ include 'head_source.php';
                     </div>
                     <!-- /user menu -->
 
-                    <?php include "navigation.php" ?>
+                    <?php include "includes/navigation.php" ?>
                 </div>
             </div>
             <!-- /main sidebar -->
@@ -222,7 +222,7 @@ include 'head_source.php';
         </div>
         <!-- /page container -->
 
-        <?php include "script.php"; ?>
+        <?php include "includes/script.php"; ?>
 </body>
 
 </html>
