@@ -4,14 +4,14 @@
 <?php
 
 
-include 'head_source.php';
-require 'db_config.php';
+include 'includes/head_source.php';
+require 'includes/db_config.php';
 
 ?>
 
 <body>
 
-    <?php include "main_nav.php"; ?>
+    <?php include "includes/main_nav.php"; ?>
 
 
     <!-- Page container -->
@@ -48,7 +48,7 @@ require 'db_config.php';
                         </div>
                     </div>
                     <!-- /user menu -->
-                    <?php include "navigation.php"; ?>
+                    <?php include "includes/navigation.php"; ?>
 
                 </div>
             </div>
@@ -90,7 +90,7 @@ require 'db_config.php';
                         </div>
                         <div class="panel-body">
                             <?php
-                            require 'db_config.php';
+                            require 'includes/db_config.php';
                             $category_id = $_GET['category_id'];
                             $show_data = "SELECT * FROM categories WHERE id = {$category_id}";
                             $update_query = mysqli_query($db_con, $show_data);
@@ -156,7 +156,7 @@ require 'db_config.php';
 
     </div>
     <!-- /page container -->
-    <?php include "script.php"; ?>
+    <?php include "includes/script.php"; ?>
 </body>
 
 </html>

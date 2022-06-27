@@ -3,14 +3,14 @@
 <?php
 
 
-include 'head_source.php';
-require 'db_config.php';
+include 'includes/head_source.php';
+require 'includes/db_config.php';
 
 ?>
 
 <body>
 
-    <?php include "main_nav.php"; ?>
+    <?php include "includes/main_nav.php"; ?>
 
 
     <!-- Page container -->
@@ -47,7 +47,7 @@ require 'db_config.php';
                         </div>
                     </div>
                     <!-- /user menu -->
-                    <?php include "navigation.php"; ?>
+                    <?php include "includes/navigation.php"; ?>
 
                 </div>
             </div>
@@ -162,7 +162,7 @@ require 'db_config.php';
 
     </div>
     <!-- /page container -->
-    <?php include "script.php"; ?>
+    <?php include "includes/script.php"; ?>
 </body>
 
 </html>

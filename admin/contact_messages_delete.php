@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 
 $contact_messages_id = $_GET['contact_messages_id'];
 $sql = "UPDATE contact_messages SET active_status=0 WHERE id='{$contact_messages_id}'";

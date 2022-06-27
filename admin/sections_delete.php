@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 
 $sections_id = $_GET['sections_id'];
 $sql = "UPDATE sections SET active_status=0 WHERE id='{$sections_id}'";

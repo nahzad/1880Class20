@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 
 $project_id = $_GET['project_id'];
 $sql = "UPDATE our_projects SET active_status=0 WHERE id='{$project_id}'";

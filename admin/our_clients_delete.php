@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 
 $our_clients_id = $_GET['our_clients_id'];
 $sql = "UPDATE our_clients SET active_status=0 WHERE id='{$our_clients_id}'";

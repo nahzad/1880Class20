@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 
 $service_id = $_GET['service_id'];
 $sql = "UPDATE services SET active_status=0 WHERE id='{$service_id}'";

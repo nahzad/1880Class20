@@ -1,5 +1,5 @@
 <?php
-require 'db_config.php';
+require 'includes/db_config.php';
 // THIS FOR CREATE
 if (isset($_POST['save_category'])) {
 

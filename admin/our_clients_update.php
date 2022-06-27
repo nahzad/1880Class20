@@ -4,14 +4,14 @@
 <?php
 
 
-include 'head_source.php';
-require 'db_config.php';
+include 'includes/head_source.php';
+require 'includes/db_config.php';
 
 ?>
 
 <body>
 
-    <?php include "main_nav.php"; ?>
+    <?php include "includes/main_nav.php"; ?>
 
 
     <!-- Page container -->
@@ -48,7 +48,7 @@ require 'db_config.php';
                         </div>
                     </div>
                     <!-- /user menu -->
-                    <?php include "navigation.php"; ?>
+                    <?php include "includes/navigation.php"; ?>
 
                 </div>
             </div>
@@ -101,7 +101,7 @@ require 'db_config.php';
                                     </div>
                                     <?php } ?>
                                     <?php
-                                    require 'db_config.php';
+                                    require 'includes/db_config.php';
                                     $our_clients_id = $_GET['our_clients_id'];
                                     $show_data = "SELECT * FROM our_clients WHERE id = {$our_clients_id}";
                                     $update_query = mysqli_query($db_con, $show_data) or die("Update query failed");
@@ -118,7 +118,7 @@ require 'db_config.php';
                                         </div>
                                     </div>
                                     <?php
-                                            require 'db_config.php';
+                                            require 'includes/db_config.php';
                                             $option_select_query = "SELECT * FROM designations WHERE active_status=1";
                                             $designations_list = mysqli_query($db_con, $option_select_query);
                                             ?>
@@ -197,7 +197,7 @@ require 'db_config.php';
 
     </div>
     <!-- /page container -->
-    <?php include "script.php"; ?>
+    <?php include "includes/script.php"; ?>
 </body>
 
 </html>
