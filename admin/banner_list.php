@@ -4,7 +4,7 @@
 
 
 include 'includes/head_source.php';
-require 'includes/db_config.php';
+require_once 'includes/db_config.php';
 
 ?>
 
@@ -116,8 +116,6 @@ require 'includes/db_config.php';
 
                                     foreach ($banner_list as $key => $banner) {
                                     ?>
-
-
                                     <tr>
                                         <td><?php echo ++$key; ?></td>
                                         <td><?php echo $banner['title']; ?></td>
@@ -125,7 +123,7 @@ require 'includes/db_config.php';
                                         <td><?php echo $banner['details']; ?></td>
                                         <td>
                                             <img class=" img-responsive img-fluid" width='80' height='80'
-                                                src="media/Banner Image/<?php echo $banner['image']; ?>"
+                                                src="media/Banner_Image/<?php echo $banner['image']; ?>"
                                                 alt="Banner Image">
                                         </td>
 

@@ -61,24 +61,74 @@ if (isset($_POST['save_project'])) {
 
     header("Location: project_create.php?msg={$message}");
 }
+
 // THIS FOR UPDATE
+
 if (isset($_POST['update_project'])) {
 
-    $project_id    = $_POST['project_id'];
-    $category_id   = $_POST['category_id'];
-    $project_name  = $_POST['project_name'];
-    $project_link  = $_POST['project_link'];
-    $project_thumb = $_POST['project_thumb'];
+    // GET THE IMAGE NAME
+    $project_id = $_POST['project_id'];
+    $getSingleDataQry = "SELECT * FROM our_projects WHERE id={$project_id}";
+    $getResult = mysqli_query($db_con, $getSingleDataQry);
+
+    $oldImg = '';
+    foreach ($getResult as $key => $project) {
+        $oldImg = $project['project_thumb'];
+    }
+    // END GET THE IMAGE NAME
+
+
+    $upload_status = false;
+    if (isset($_FILES['project_thumb']) && $_FILES['project_thumb']['size'] > 0) {
+
+        $imgArray = $_FILES['project_thumb'];
+        $file_name = $imgArray['name'];
+        $tmp_file_name = $imgArray['tmp_name'];
+
+        $nameExtArr = explode('.', $file_name);
+        $file_extension = strtolower(end($nameExtArr));
+        $valid_extensions = array('jpg', 'png', 'jpeg');
+
+        $random_file_name = time() . '.' . $file_extension;
+
+        if ($random_file_name != $oldImg) { //WHEN NEW IMAGE NAME DOES NOT MATCH WITH OLD IMAGE
+
+            // FILE REMOVE
+            $file = 'media/Project Thumb/' . $oldImg;
+            if (file_exists($file)) {
+                unlink($file);
+            }
+            // END FILE REMOVE
+
+            // NEW FILE UPLOAD
+            if (in_array($file_extension, $valid_extensions)) {
+                move_uploaded_file($tmp_file_name, 'media/Project Thumb/' . $random_file_name);
+                $upload_status = true;
+            } else {
+                $message = $file_extension . " is not Supported";
+            }
+        }
+    } else {
+        $random_file_name = $oldImg;
+    }
+
+
+    $project_id   = $_POST['project_id'];
+    $category_id  = $_POST['category_id'];
+    $project_name = $_POST['project_name'];
+    $project_link = $_POST['project_link'];
 
     if (empty($category_id) || empty($project_name) || empty($project_link)) {
         $message = "All fields are required";
     } else {
-        $sql = "UPDATE projects SET category_id='{$category_id}', project_name='{$project_name}', project_link='{$project_link}',project_thumb='{$random_file_name}' WHERE id='{$project_id}'";
 
-        $update_query = mysqli_query($db_con, $sql) or die("Data not updated !");
 
-        if ($update_query == true) {
-            $message = "Data Updated Succesfully";
+        $updateQry = "UPDATE our_projects SET category_id='{$category_id}', project_name='{$project_name}', project_link='{$project_link}', project_thumb='{$random_file_name}' WHERE id='{$project_id}'";
+
+        $isSubmit = mysqli_query($db_con, $updateQry);
+
+        if ($isSubmit == true) {
+            $message = "Data updated successfully";
         } else {
             $message = "Update Failed";
         }

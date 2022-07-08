@@ -119,12 +119,25 @@ require 'includes/db_config.php';
                                                 name="details"></textarea>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label class="control-label col-lg-2" for="image">Image</label>
                                         <div class="col-lg-10">
                                             <input name="image" type="file" class="form-control" id="image">
                                         </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label text-semibold" for="image">Image</label>
+                                        <div class="col-lg-10">
+                                            <input type="file" name="image" id="image"
+                                                class="file-input-extensions"><span class="help-block">Allow extensions:
+                                                <code>jpg</code>, <code>png</code>
+                                                and
+                                                <code>jpeg</code> and Allow Size: <code>640 * 426</code>Only</span>
+                                        </div>
+
                                     </div>
+
+
                                 </fieldset>
                                 <div class="text-right">
                                     <input type="submit" value="Save Data" name="save_banner" class="btn btn-primary">

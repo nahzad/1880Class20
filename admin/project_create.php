@@ -137,12 +137,24 @@ require 'includes/db_config.php';
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                    <!--  <div class="form-group">
                                         <label class="control-label col-lg-2" for="project_thumb">Project Thumb</label>
                                         <div class="col-lg-10">
                                             <input name="project_thumb" type="file" class="form-control"
                                                 id="project_thumb">
                                         </div>
+                                    </div> -->
+                                    <div class="form-group">
+                                        <label class="col-lg-2 control-label text-semibold" for="project_thumb">Project
+                                            Thumb</label>
+                                        <div class="col-lg-10">
+                                            <input type="file" name="project_thumb" id="project_thumb"
+                                                class="file-input-extensions"><span class="help-block">Allow extensions:
+                                                <code>jpg</code>, <code>png</code>
+                                                and
+                                                <code>jpeg</code> and Allow Size: <code>640 * 426</code>Only</span>
+                                        </div>
+
                                     </div>
                                 </fieldset>
                                 <div class="text-right">
